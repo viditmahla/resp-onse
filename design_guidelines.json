@@ -1,0 +1,139 @@
+{
+  "project_identity": {
+    "name": "India ERW Simulator",
+    "persona": "E1 - The Scientific Modernist",
+    "tone": "Clinical, Precise, High-Fidelity, Trustworthy",
+    "aesthetic": "Lab-Clean, High-Density Data, Swiss Typography",
+    "theme_strategy": "Light Mode Only (Scientific Standard) with High-Contrast Data",
+    "target_audience": "Scientists, Policymakers, Climate Researchers"
+  },
+  "typography": {
+    "font_family": {
+      "headings": "Work Sans, sans-serif",
+      "body": "Inter, sans-serif",
+      "data": "JetBrains Mono, monospace"
+    },
+    "scale": {
+      "h1": "text-4xl font-semibold tracking-tight",
+      "h2": "text-3xl font-medium tracking-tight",
+      "h3": "text-2xl font-medium",
+      "body_lg": "text-lg leading-relaxed",
+      "body_base": "text-base leading-relaxed text-slate-600",
+      "body_sm": "text-sm text-slate-500",
+      "caption": "text-xs font-mono uppercase tracking-wider text-slate-400"
+    },
+    "rules": [
+      "No Inter for Headings.",
+      "Use JetBrains Mono for all numerical data, coordinates, and chemical formulas (e.g., pCO2).",
+      "Headings should be Dark Slate (slate-900), Body should be Slate-600."
+    ]
+  },
+  "colors": {
+    "palette": {
+      "background": {
+        "default": "#FFFFFF",
+        "subtle": "#F8FAFC",
+        "paper": "#FFFFFF"
+      },
+      "foreground": {
+        "default": "#0F172A",
+        "muted": "#64748B",
+        "inverse": "#FFFFFF"
+      },
+      "primary": {
+        "main": "#0F172A",
+        "light": "#334155",
+        "dark": "#020617"
+      },
+      "accent": {
+        "main": "#2563EB",
+        "hover": "#1D4ED8",
+        "subtle": "#EFF6FF"
+      },
+      "scientific_data": {
+        "pH": "#8B5CF6",
+        "alkalinity": "#10B981",
+        "dic": "#F59E0B",
+        "cdr": "#EC4899",
+        "omega": "#6366F1"
+      },
+      "borders": {
+        "default": "#E2E8F0",
+        "strong": "#CBD5E1"
+      }
+    },
+    "gradients": {
+      "heatmap": "from-blue-50 to-blue-600",
+      "alert": "from-red-50 to-red-100"
+    },
+    "forbidden_colors": [
+      "#1B93A4",
+      "#7351B7"
+    ]
+  },
+  "layout_system": {
+    "grid_strategy": "Bento Grid - High Density (Mode B)",
+    "container_padding": "p-6 or p-8",
+    "spacing_scale": "Relaxed (gap-6 for dashboard, gap-12 for landing)",
+    "rules": [
+      "Use 'Grid Borders' style: visible 1px borders between grid items to mimic a spreadsheet/lab report.",
+      "Dashboard widgets must fill height (h-full).",
+      "Always use a sidebar layout for the main app navigation."
+    ]
+  },
+  "components": {
+    "cards": {
+      "style": "Flat, 1px border (slate-200), no shadow by default. Shadow-sm on hover.",
+      "radius": "rounded-sm"
+    },
+    "buttons": {
+      "primary": "bg-slate-900 text-white hover:bg-slate-800 rounded-md px-6 py-2.5 font-medium transition-all active:scale-95",
+      "secondary": "bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 hover:text-slate-900",
+      "ghost": "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+    },
+    "inputs": {
+      "style": "bg-white border-slate-200 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 rounded-md h-10"
+    },
+    "charts": {
+      "library": "Recharts (via Shadcn)",
+      "style": "Minimal axes, grid lines dashed (stroke-dasharray='3 3'), custom tooltips with glassmorphism.",
+      "colors": ["#2563EB", "#10B981", "#8B5CF6", "#F59E0B", "#EC4899"]
+    },
+    "maps": {
+      "library": "react-simple-maps",
+      "style": "Grayscale base map (fill='#E2E8F0'), vibrant data points. Tooltips on hover."
+    }
+  },
+  "motion": {
+    "transitions": "transition-all duration-200 ease-out",
+    "hover_effects": "translate-y-[-2px] shadow-md",
+    "loading": "Skeleton loaders (pulse) for data fetching."
+  },
+  "assets": {
+    "icons_library": "lucide-react",
+    "images": {
+      "hero_river": "https://images.pexels.com/photos/19115419/pexels-photo-19115419.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "rock_sample": "https://images.pexels.com/photos/7409836/pexels-photo-7409836.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "lab_texture": "Use CSS radial-gradient dots for background texture."
+    }
+  },
+  "universal_guidelines": [
+    "DO NOT use generic centered layouts. Use asymmetrical grids.",
+    "Dark colors look good when used independently without gradients.",
+    "Create depth through z-index and subtle borders, not heavy shadows.",
+    "Every interaction needs micro-animations.",
+    "Data-testid attributes are MANDATORY for all interactive elements.",
+    "Use 'sonner' for toasts.",
+    "Use Shadcn components for complex interactions (Dialog, Select, Popover) but styled to match the theme."
+  ],
+  "instructions_to_main_agent": [
+    "1. Setup the font families in index.css (import Work Sans and JetBrains Mono).",
+    "2. Configure tailwind.config.js to extend colors with the scientific palette.",
+    "3. Create a 'DashboardLayout' component with a sidebar and a top bar.",
+    "4. Implement the 'ERW Simulator' using a Bento Grid layout.",
+    "5. Use Recharts for all data visualizations. Customize the Tooltip to be a glassmorphic card.",
+    "6. Ensure the India Map is interactive and colored by CDR potential.",
+    "7. Create a 'Chatbot' floating widget or sidebar panel using the AI Assistant.",
+    "8. Strictly follow the spacing and color rules defined here."
+  ]
+}
