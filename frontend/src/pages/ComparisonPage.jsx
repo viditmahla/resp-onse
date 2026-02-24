@@ -125,10 +125,9 @@ export default function ComparisonPage() {
                 <YAxis tick={{ fontSize: 10, fill: "#64748B" }} tickFormatter={formatNumber} />
                 <Tooltip content={<GlassTooltip formatter={v => formatNumber(v)} />} />
                 <Bar dataKey="total_cdr" name="Total CDR (t/yr)" radius={[4, 4, 0, 0]} fill="#2563EB">
-                  {totalsData.map((d, i) => {
-                    const { Cell } = require("recharts");
-                    return <Cell key={i} fill={OMEGA_COLORS[d.omega_val] || "#2563EB"} />;
-                  })}
+                  {totalsData.map((d, i) => (
+                    <Cell key={i} fill={OMEGA_COLORS[d.omega_val] || "#2563EB"} />
+                  ))}
                 </Bar>
               </BarChart>
             </ResponsiveContainer>
