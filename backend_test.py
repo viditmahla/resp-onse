@@ -164,27 +164,50 @@ class ERWBackendTester:
             print(f"   Available states: {len(states)}")
         return success
 
-    def test_analytics_distributions(self):
-        """Test analytics distributions data"""
+    def test_analytics_full(self):
+        """Test analytics full data (new endpoint)"""
         success, data = self.run_test(
-            "Analytics Distributions", "GET", "/analytics/distributions",
+            "Analytics Full", "GET", "/analytics/full",
             params={"feedstock": "calcite", "omega": 5}
         )
         if success and isinstance(data, list):
-            print(f"   Found {len(data)} distribution data points")
+            print(f"   Found {len(data)} analytics records")
             if data:
                 fields = list(data[0].keys())
-                print(f"   Available fields: {fields[:5]}...")
+                print(f"   Available fields: {fields[:8]}...")
+                # Check for key fields needed by analytics tabs
+                key_fields = ['ph', 'alkalinity', 'ca', 'mg', 'hco3', 'dic', 'pco2', 'si_calcite', 'nicb', 'region']
+                missing = [f for f in key_fields if f not in fields]
+                if missing:
+                    print(f"   ⚠️  Missing key fields: {missing}")
+                else:
+                    print(f"   ✅ All key analytics fields present")
         return success
 
-    def test_analytics_scatter(self):
-        """Test analytics scatter data"""
+    def test_analytics_basin_stats(self):
+        """Test analytics basin stats (new endpoint)"""
         success, data = self.run_test(
-            "Analytics Scatter", "GET", "/analytics/scatter",
-            params={"feedstock": "calcite", "omega": 5, "x_field": "discharge", "y_field": "cdr_t_yr"}
+            "Analytics Basin Stats", "GET", "/analytics/basin-stats",
+            params={"feedstock": "calcite", "omega": 5}
         )
         if success and isinstance(data, list):
-            print(f"   Found {len(data)} scatter plot points")
+            print(f"   Found {len(data)} basin statistics")
+            if data:
+                fields = list(data[0].keys())
+                print(f"   Basin stat fields: {fields[:6]}...")
+        return success
+
+    def test_analytics_nicb_quality(self):
+        """Test analytics NICB quality (new endpoint)"""
+        success, data = self.run_test(
+            "Analytics NICB Quality", "GET", "/analytics/nicb-quality",
+            params={"feedstock": "calcite", "omega": 5}
+        )
+        if success and isinstance(data, list):
+            print(f"   Found {len(data)} NICB quality records")
+            if data:
+                sample = data[0]
+                print(f"   Sample NICB data: Basin={sample.get('basin', 'N/A')}, Within 5%={sample.get('pct_within_5', 0)}%")
         return success
 
     def test_states_cdr(self):
