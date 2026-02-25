@@ -20,12 +20,9 @@ export default function Shell() {
       <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-xl border-b border-gray-100" data-testid="topbar">
         <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
           <div className="flex items-center justify-between h-16">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-emerald-600 flex items-center justify-center">
-                <FlaskConical className="w-4 h-4 text-white" />
-              </div>
-              <span className="text-lg font-bold tracking-tight text-gray-900" style={{ fontFamily: "var(--font-heading)" }}>
-                ERW<span className="text-emerald-600">India</span>
+            <div className="flex items-center">
+              <span className="text-xl font-bold tracking-tight text-blue-600" style={{ fontFamily: "var(--font-heading)" }}>
+                resp<span className="text-blue-500">:</span>onse
               </span>
             </div>
 
