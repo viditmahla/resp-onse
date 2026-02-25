@@ -1,10 +1,6 @@
-/* App-level styles - minimal, most styling is in Tailwind */
 .recharts-cartesian-grid-horizontal line,
 .recharts-cartesian-grid-vertical line {
   stroke-dasharray: 3 3;
-  stroke: #e2e8f0;
+  stroke: #e5e7eb;
 }
-
-.recharts-tooltip-wrapper {
-  outline: none !important;
-}
+.recharts-tooltip-wrapper { outline: none !important; }
