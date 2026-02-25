@@ -43,7 +43,7 @@ export default function MapPage() {
     if (colorBy === "cdr") {
       const cdr = d.cdr_t_yr || 0;
       const t = Math.min(cdr / 5e6, 1);
-      return `rgb(${Math.round(37 + 202 * (1-t))}, ${Math.round(99 + 156 * (1-t))}, ${Math.round(235 - 175 * (1-t)})`;
+      return `rgb(${Math.round(37 + 202 * (1-t))}, ${Math.round(99 + 156 * (1-t))}, ${Math.round(235 - 175 * (1-t))})`;
     }
     return "#94a3b8";
   };
