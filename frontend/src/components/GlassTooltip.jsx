@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function GlassTooltip({ active, payload, label, formatter }) {
   if (!active || !payload?.length) return null;
   return (
